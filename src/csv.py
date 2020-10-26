@@ -1,5 +1,6 @@
 import pandas as pd
 import glob
+import os
 
 # Путь ко всем найденным ссылкам
 path_bd_all = 'save/release/bd_all.csv'
@@ -19,6 +20,9 @@ def write_merge():
     """Собрать общие данные и отфильтровать данные тестов в отдельный файл csv."""
 
     files = glob.glob("save/db_*.csv")
+
+    # Убираем пустые csv файлы
+    files = list(filter(lambda file: os.stat(file).st_size > 1, files))
 
     # Получаем все временные csv файлы для соединения
     df = (pd.read_csv(f) for f in files)
