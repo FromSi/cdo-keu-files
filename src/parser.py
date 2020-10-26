@@ -58,5 +58,5 @@ def media(url):
     r = requests.get(url, allow_redirects=True)
 
     # Сохраняем файл с тестами
-    open(f"save/media/file_{url_array[4]}_{url_array[5]}_{url_array[6].split('.')[0]}.txt", 'w') \
+    open(f"save/media/file_{url_array[4]}_{url_array[5]}.txt", 'w') \
         .write(helper.html_to_text(r.content))
