@@ -49,7 +49,8 @@ def two():
 
     print('-------------two-------------')
 
-    helper.remove_files('save/media/file_*')
+    # Практика показала, что следует для этого случая делать отдельную команду
+    # helper.remove_files('save/media/file_*')
 
     for value in csv.read_tests():
         parser.media(value)

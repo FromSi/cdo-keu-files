@@ -55,8 +55,12 @@ def media(url):
 
     # Разбиение делаю для названия файлов
     url_array = url.split('/')
-    r = requests.get(url, allow_redirects=True)
+    file_name = f"save/media/file_{url_array[4]}_{url_array[5]}.txt"
 
-    # Сохраняем файл с тестами
-    open(f"save/media/file_{url_array[4]}_{url_array[5]}.txt", 'w') \
-        .write(helper.html_to_text(r.content))
+    if helper.is_not_file(file_name):
+        # Скачиваем файл
+        r = requests.get(url, allow_redirects=True)
+
+        # Сохраняем файл с тестами
+        open(f"save/media/file_{url_array[4]}_{url_array[5]}.txt", 'w') \
+            .write(helper.html_to_text(r.content))

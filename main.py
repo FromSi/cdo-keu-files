@@ -2,7 +2,7 @@ import src.cmd as cmd
 
 
 def main():
-    print('Start')
+    print()
     cmd.start()
     print('End!')
 

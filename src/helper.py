@@ -1,5 +1,6 @@
 import glob
 import os
+import os.path
 from bs4 import BeautifulSoup
 
 
@@ -28,3 +29,9 @@ def html_to_text(html):
     chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
     # drop blank lines
     return '\n'.join(chunk for chunk in chunks if chunk)
+
+
+def is_not_file(path):
+    """Проверка файла."""
+
+    return not os.path.isfile(path)
